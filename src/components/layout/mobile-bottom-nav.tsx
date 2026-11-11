@@ -1,0 +1,5 @@
+import { House, Store, UserRound } from "lucide-react";
+import Link from "next/link";
+import { SavedLink } from "./saved-link";
+import { CartLink } from "./cart-link";
+export function MobileBottomNav({ activePage = "home" }: { activePage?: "home" | "shop" | "saved" | "cart" | "account" }) { return <nav className="mobile-bottom-nav" aria-label="Mobile navigation"><div className="bottom-nav-inner"><Link href="/#home" className={`bottom-nav-item ${activePage === "home" ? "selected" : ""}`} aria-current={activePage === "home" ? "page" : undefined}><House /><span>Home</span></Link><Link href="/shop" className={`bottom-nav-item ${activePage === "shop" ? "selected" : ""}`} aria-current={activePage === "shop" ? "page" : undefined}><Store /><span>Shop</span></Link><SavedLink variant="bottom" active={activePage === "saved"} /><CartLink variant="bottom" active={activePage === "cart"} /><Link href="/account" className={`bottom-nav-item ${activePage === "account" ? "selected" : ""}`} aria-current={activePage === "account" ? "page" : undefined}><UserRound /><span>Account</span></Link></div></nav>; }
